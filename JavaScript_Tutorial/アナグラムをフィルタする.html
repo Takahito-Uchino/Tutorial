@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let arr = ['nap', 'teachers', 'cheaters', 'PAN', 'ear', 'era', 'hectares'];
+
+        alert(aclean(arr));
+
+        function aclean (arr) {
+            let map = new Map();
+
+            for (let word of arr) {
+                let sorted = word.toLowerCase().split('').sort().join('');
+                map.set(sorted, word);
+            }
+
+            return Array.from(map.values());
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let f = debounce(alert, 1000);
+
+        f(1); // すぐに実行される
+        f(2); // 無視される
+
+        setTimeout( () => f(3), 100); // 無視される (100 ms だけ経過した)
+        setTimeout( () => f(4), 1100); // 実行される
+        setTimeout( () => f(5), 1500); // 無視される (最後の実行から 1000ms 経過していない)
+
+        function debounce(f, ms) {
+            let isCooldown = false;
+
+            return function() {
+                if (isCooldown) return;
+
+                f.apply(this, arguments);
+
+                isCooldown = true;
+
+                setTimeout(() => isCooldown = false, ms);
+            };
+        }
+    </script>
+</body>
+</html>

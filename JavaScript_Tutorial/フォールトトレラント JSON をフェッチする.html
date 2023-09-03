@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let urls = [
+            'https://api.github.com/users/iliakan',
+            'https://api.github.com/users/remy',
+            'https://api.github.com/users/jeresig'
+        ];
+
+        // フェッチリクエストを作成
+        Promise.all(urls.map(url => fetch(url).catch(err => err)))
+        // 各レスポンスを response.json() にマップする
+            .then(responses => Promise.all(
+                responses.map(r => r instanceof Error ? r : r.json().catch(err => err))
+        ))
+        // 各ユーザ名を表示
+            .then(results => {  // (*)
+                alert(results[0].name);
+                alert(results[1]);
+                alert(results[2]);
+        });
+
+    </script>
+</body>
+</html>

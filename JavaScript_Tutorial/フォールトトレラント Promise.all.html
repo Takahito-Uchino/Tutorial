@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let urls = [
+        'https://api.github.com/users/iliakan',
+        'https://api.github.com/users/remy',
+        'https://api.github.com/users/jeresig'
+        ];
+
+        Promise.all(urls.map(url => fetch(url).catch(err => err)))
+        // 各レスポンスに対し、そのステータスを表示
+        .then(responses => { // (*)
+            for(let response of responses) {
+            alert(`${response.url}: ${response.status}`);
+            }}
+        ));
+    </script>
+</body>
+</html>

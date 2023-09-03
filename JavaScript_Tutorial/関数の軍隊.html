@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function makeArmy() {
+            let shooters = [];
+
+            for (let i = 0; i < 10; i++) {
+                let shooter = function() { // 射手(shooter) 関数
+                    alert( i ); // その番号を表示するべき
+                };
+                shooters.push(shooter);
+            }
+
+            return shooters;
+        }
+
+        let army = makeArmy();
+
+        army[0](); // 射手 番号 0 表示 10
+        army[5](); // また 番号 5 ですが表示は 10...
+        // ... すべての射手は 0, 1, 2, 3... の代わりに 10 が表示されます
+    </script>
+</body>
+</html>

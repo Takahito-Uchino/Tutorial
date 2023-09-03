@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let dictionary = Object.create(null, {
+            toString: {
+                value() {
+                    return Object.keys(this).join();
+                }
+            }
+        });
+
+        // dictionary.toString メソッドを追加するあなたのコード
+
+        // データの追加
+        dictionary.apple = "Apple";
+        dictionary.__proto__ = "test"; // __proto__ はここでは通常のプロパティキー
+
+        // ループでは apple と __proto__ だけです
+        for(let key in dictionary) {
+            alert(key); // "apple", then "__proto__"
+        }
+
+        // 実行時のあなたの toString です
+        alert(dictionary); // "apple,__proto__"
+
+    </script>
+</body>
+</html>

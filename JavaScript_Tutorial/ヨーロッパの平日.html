@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let date = new Date(2012, 0, 3);
+        alert(getLocalDay(date));
+
+        function getLocalDay(date) {
+            let day = date.getDay();
+            if (date.getDay() == 0) {
+                day = 7;
+            }
+            return day;
+        }
+    </script>
+</body>
+</html>

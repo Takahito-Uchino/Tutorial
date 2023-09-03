@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let userName = prompt('Who\'s there?', '')
+
+        if (userName == '') {
+            alert('Canceled')
+        } else if (userName != 'Admin') {
+            alert('I don\'t know you')
+        } else {
+            let userPassword = prompt('Password?', '')
+                if (userPassword == '') {
+                alert('Canceled')
+            } else if (userPassword != 'TheMaster') {
+                alert('Wrong password')
+            } else {
+                alert('Welcome!')
+            }
+        }
+    </script>
+</body>
+</html>
